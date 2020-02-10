@@ -1,6 +1,5 @@
 **.iml
 .idea
-example/target
-server/target
+/target
 /.idea/
-
+/target/
