@@ -12,6 +12,7 @@ public class RatingCalculator {
         this.player1 = game.getPlayers().get(0);
         this.player2 = game.getPlayers().get(1);
         updatePlayerRating(player1, player2);
+        updatePlayerDelta(player1, player2);
     }
 
 
@@ -28,6 +29,12 @@ public class RatingCalculator {
     public int newRating(Player primaryPlayer, Player otherPlayer) {
         double updatedRating = primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (this.getScore(primaryPlayer) - this.expectedScore(primaryPlayer, otherPlayer));
         int rounded = (int) Math.round(updatedRating);
+        return rounded;
+    }
+
+    public int newDelta(Player primaryPlayer, Player otherPlayer) {
+        double updatedDelta = primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (this.getScore(primaryPlayer) - this.expectedScore(primaryPlayer, otherPlayer)) - defaultSettings.getDefaultRating();
+        int rounded = (int) Math.round(updatedDelta);
         return rounded;
     }
 
@@ -50,9 +57,19 @@ public class RatingCalculator {
         updateWinLossCounts();
     }
 
+    public void updatePlayerDelta(Player firstPlayer, Player secondPlayer) {
+        int firstNewDelta = this.newDelta(firstPlayer, secondPlayer);
+        int secondNewDelta = this.newDelta(secondPlayer, firstPlayer);
+        firstPlayer.setDelta(firstNewDelta);
+        secondPlayer.setDelta(secondNewDelta);
+
+    }
+
     public void updateWinLossCounts() {
         game.getWinner().incrementWinCount();
         game.getLoser().incrementLossCount();
     }
+
+
 
 }

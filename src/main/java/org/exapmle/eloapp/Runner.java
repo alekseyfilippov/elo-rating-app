@@ -69,10 +69,12 @@ public class Runner {
             System.out.println(game.getWinner().getName());
             RatingCalculator ratingCalculator = new RatingCalculator(game);
             System.out.println(game.getWinner().getRating());
+            System.out.println(game.getWinner().getDelta());
             System.out.println(game.getLoser().getName());
             System.out.println(game.getLoser().getRating());
+            System.out.println(game.getLoser().getDelta());
             System.out.println("-------");
-            Thread.sleep(3000);
+            Thread.sleep(30);
         }
         playerPool.sortPlayersByRanking();
         playerPool.printNewRatings();

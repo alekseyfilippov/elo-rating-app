@@ -7,9 +7,12 @@ public class Player {
     private String name;
     private int winCount;
     private int rating;
+    private int delta;
     private ArrayList<Game> gamesBank;
     private int lossCount;
     private DefaultSettings defaultSettings;
+
+
 
 
     public Player(String name) {
@@ -19,6 +22,7 @@ public class Player {
         winCount = 0;
         lossCount = 0;
         rating = defaultSettings.getDefaultRating();
+        delta = rating - defaultSettings.getDefaultRating();
     }
 
 
@@ -32,6 +36,14 @@ public class Player {
 
     public void setRating(int rating) {
         this.rating = rating;
+    }
+
+    public int getDelta() {
+        return delta;
+    }
+
+    public void setDelta(int delta) {
+        this.delta = delta;
     }
 
     public String getName() {
