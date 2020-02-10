@@ -74,7 +74,9 @@ public class Runner {
             System.out.println(game.getLoser().getRating());
             System.out.println(game.getLoser().getDelta());
             System.out.println("-------");
-            Thread.sleep(30);
+            Thread.sleep(3000);
+            playerPool.sortPlayersByDelta();
+            playerPool.printNewRatings();
         }
         playerPool.sortPlayersByRanking();
         playerPool.printNewRatings();

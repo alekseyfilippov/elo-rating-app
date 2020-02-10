@@ -90,4 +90,12 @@ public class Player {
         }
     };
 
+    public static Comparator<Player> Delta = new Comparator<Player>() {
+        public int compare(Player player1, Player player2) {
+            int deltaNo1 = player1.getDelta();
+            int deltaNo2 = player2.getDelta();
+            return deltaNo2 - deltaNo1;
+        }
+    };
+
 }

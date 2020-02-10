@@ -21,6 +21,9 @@ public class PlayerPool {
     public void sortPlayersByRanking() {
         Collections.sort(players, Player.Rating);
     }
+    public void sortPlayersByDelta() {
+        Collections.sort(players, Player.Delta);
+    }
 
     public void printNewRatings() {
         System.out.println("-----------------------------------------------------------------------------");
