@@ -39,4 +39,19 @@ public class PlayerPool {
         }
         System.out.println("--------------------------------------------------------");
     }
+
+    public void printFirstFive() {
+        System.out.println("--------------------------------------------------------");
+        System.out.printf("%10s %10s %10s %10s %10s", "RANKING", "NAME", "SCHOOL", "RATING", "DELTA");
+        System.out.println();
+        System.out.println("--------------------------------------------------------");
+        for (int i = 0; i < 5; i++){
+            int rank = i;
+            System.out.format("%10s %10s %10s %10d %10s",
+                    rank + 1, players.get(i).getName(), players.get(i).getSchool(), players.get(i).getRating(),
+                    players.get(i).getDelta());
+            System.out.println();
+        }
+        System.out.println("--------------------------------------------------------");
+    }
 }

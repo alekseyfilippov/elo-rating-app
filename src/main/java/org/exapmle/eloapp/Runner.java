@@ -78,11 +78,11 @@ public class Runner {
             System.out.println(game.getLoser().getDelta());
             System.out.println("----------");
             Thread.sleep(30);
-            playerPool.sortPlayersByDelta();
+            playerPool.sortPlayersByRanking();
             playerPool.printNewRatings();
         }
-        playerPool.sortPlayersByRanking();
-        playerPool.printNewRatings();
+        playerPool.sortPlayersByDelta();
+        playerPool.printFirstFive();
     }
 
 
