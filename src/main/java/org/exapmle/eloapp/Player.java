@@ -5,26 +5,33 @@ import java.util.Comparator;
 
 public class Player {
     private String name;
-    private int winCount;
+    private String school;
     private int rating;
     private int delta;
     private ArrayList<Game> gamesBank;
-    private int lossCount;
     private DefaultSettings defaultSettings;
 
 
+    public Player() {
 
+    }
 
-    public Player(String name) {
+    public Player(String name, String school) {
         defaultSettings = new DefaultSettings();
         this.name = name;
+        this.school = school;
         gamesBank = new ArrayList<>();
-        winCount = 0;
-        lossCount = 0;
         rating = defaultSettings.getDefaultRating();
         delta = rating - defaultSettings.getDefaultRating();
     }
 
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
 
     public int numberOfGamesPlayed() {
         return gamesBank.size();
@@ -58,28 +65,10 @@ public class Player {
         gamesBank.add(gamePlayed);
     }
 
-    public int getNumberOfGamesPlayed() {
-        return gamesBank.size();
-    }
-
     public void incrementWinCount() {
-        winCount += 1;
     }
 
     public void incrementLossCount() {
-        lossCount += 1;
-    }
-
-    public int getWinCount() {
-        return winCount;
-    }
-
-    public int getLossCount() {
-        return lossCount;
-    }
-
-    public int winLoss() {
-        return Math.round(((float)winCount / (float)numberOfGamesPlayed() * 100));
     }
 
     public static Comparator<Player> Rating = new Comparator<Player>() {

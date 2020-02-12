@@ -26,20 +26,17 @@ public class PlayerPool {
     }
 
     public void printNewRatings() {
-        System.out.println("-----------------------------------------------------------------------------");
-        System.out.printf("%10s %10s %10s %10s %10s %10s %10s", "RANKING", "NAME", "RATING", "DELTA", "# Games", "WIN" +
-                        "/LOSS",
-                "WINS", "LOSSES");
+        System.out.println("--------------------------------------------------------");
+        System.out.printf("%10s %10s %10s %10s %10s", "RANKING", "NAME", "SCHOOL", "RATING", "DELTA");
         System.out.println();
-        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
         for (int i = 0; i < players.size(); i++){
             int rank = i;
-            System.out.format("%10s %10s %10s %10d %10s %10s %10s",
-                    rank + 1, players.get(i).getName(), players.get(i).getRating(), players.get(i).getDelta(),
-                    players.get(i).getNumberOfGamesPlayed(),
-                    players.get(i).winLoss(), players.get(i).getWinCount(), players.get(i).getLossCount());
+            System.out.format("%10s %10s %10s %10d %10s",
+                    rank + 1, players.get(i).getName(), players.get(i).getSchool(), players.get(i).getRating(),
+                    players.get(i).getDelta());
             System.out.println();
         }
-        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
     }
 }
