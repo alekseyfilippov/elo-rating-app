@@ -1,5 +1,7 @@
 package org.exapmle.eloapp;
 
+import org.exapmle.eloapp.domain.PlayerPool;
+
 public class Console {
     static PlayerPool playerPool = new PlayerPool();
     static Runner runner = new Runner(playerPool);

@@ -1,4 +1,4 @@
-package org.exapmle.eloapp;
+package org.exapmle.eloapp.domain;
 
 import java.util.ArrayList;
 import java.util.Collections;

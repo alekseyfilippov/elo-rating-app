@@ -1,5 +1,10 @@
 package org.exapmle.eloapp;
 
+import org.exapmle.eloapp.algorithm.RatingCalculator;
+import org.exapmle.eloapp.domain.Game;
+import org.exapmle.eloapp.domain.Player;
+import org.exapmle.eloapp.domain.PlayerPool;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

@@ -1,4 +1,7 @@
-package org.exapmle.eloapp;
+package org.exapmle.eloapp.algorithm;
+
+import org.exapmle.eloapp.domain.Game;
+import org.exapmle.eloapp.domain.Player;
 
 public class RatingCalculator {
     private Player player1;

@@ -1,4 +1,6 @@
-package org.exapmle.eloapp;
+package org.exapmle.eloapp.domain;
+
+import org.exapmle.eloapp.algorithm.RatingCalculator;
 
 import java.util.ArrayList;
 
