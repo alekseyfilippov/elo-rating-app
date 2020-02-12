@@ -3,11 +3,19 @@ package org.exapmle.eloapp;
 public class RatingCalculator {
     private Player player1;
     private Player player2;
-    private DefaultSettings defaultSettings;
     private Game game;
 
+    private int proRatingBoundry = 2400;
+    private int starterBoundary = 30;
+    private int defaultRating = 2000;
+    private int defaultKFactor = 10;
+
     public RatingCalculator(Game game) {
-        defaultSettings = new DefaultSettings();
+        this.proRatingBoundry = getProRatingBoundry();
+        this.starterBoundary = getStarterBoundary();
+        this.defaultRating = getDefaultRating();
+        this.defaultKFactor = getDefaultKFactor();
+
         this.game = game;
         this.player1 = game.getPlayers().get(0);
         this.player2 = game.getPlayers().get(1);
@@ -15,6 +23,30 @@ public class RatingCalculator {
         updatePlayerDelta(player1, player2);
     }
 
+    public RatingCalculator() {
+
+    }
+
+
+    public int getProRatingBoundry() {
+        return proRatingBoundry;
+    }
+
+    public int getStarterBoundary() {
+        return starterBoundary;
+    }
+
+    public int getDefaultRating() {
+        return defaultRating;
+    }
+
+    public int getDefaultKFactor() {
+        return defaultKFactor;
+    }
+
+    public void setstarterBoundary(int starterBoundary) {
+        this.starterBoundary = starterBoundary;
+    }
 
     public double transformedRating(Player player) {
         return Math.pow(10, (player.getRating()/400));
@@ -33,7 +65,8 @@ public class RatingCalculator {
     }
 
     public int newDelta(Player primaryPlayer, Player otherPlayer) {
-        double updatedDelta = primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (this.getScore(primaryPlayer) - this.expectedScore(primaryPlayer, otherPlayer)) - defaultSettings.getDefaultRating();
+        double updatedDelta =
+                primaryPlayer.getRating() + this.kFactor(primaryPlayer) * (this.getScore(primaryPlayer) - this.expectedScore(primaryPlayer, otherPlayer)) - this.getDefaultRating();
         int rounded = (int) Math.round(updatedDelta);
         return rounded;
     }
@@ -44,9 +77,9 @@ public class RatingCalculator {
     }
 
     public int kFactor(Player player) {
-        if (player.numberOfGamesPlayed() < defaultSettings.getstarterBoundary()) return 25;
-        if (player.getRating() < defaultSettings.getProRatingBoundry()) return 15;
-        return defaultSettings.getDefaultKFactor();
+        if (player.numberOfGamesPlayed() < this.getStarterBoundary()) return 25;
+        if (player.getRating() < this.getProRatingBoundry()) return 15;
+        return this.getDefaultKFactor();
     }
 
     public void updatePlayerRating(Player firstPlayer, Player secondPlayer) {

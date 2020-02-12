@@ -8,7 +8,6 @@ public class Runner {
     private PlayerPool playerPool;
 
     //Required
-    private DefaultSettings defaultSettings;
     private RatingCalculator ratingCalculator;
     private RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 

@@ -10,7 +10,7 @@ public class Player {
     private int rating;
     private int delta;
     private ArrayList<Game> gamesBank;
-    private DefaultSettings defaultSettings;
+    private RatingCalculator ratingCalculator;
 
 
     public Player() {
@@ -18,12 +18,12 @@ public class Player {
     }
 
     public Player(String name, String school) {
-        defaultSettings = new DefaultSettings();
         this.name = name;
         this.school = school;
+        RatingCalculator ratingCalculator = new RatingCalculator();
         gamesBank = new ArrayList<>();
-        rating = defaultSettings.getDefaultRating();
-        delta = rating - defaultSettings.getDefaultRating();
+        rating = ratingCalculator.getDefaultRating();
+        delta = rating - ratingCalculator.getDefaultRating();
     }
 
     public int getId() {

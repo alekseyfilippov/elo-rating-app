@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Game {
     private int id;
     private ArrayList<Player> players;
-    private DefaultSettings defaultsettings;
+    private RatingCalculator ratingCalculator;
     private Player player1;
     private Player player2;
     private int player1score;
@@ -17,7 +17,7 @@ public class Game {
         this.player2score = player2score;
         this.player1 = player1;
         this.player2 = player2;
-        defaultsettings = new DefaultSettings();
+        RatingCalculator ratingCalculator = new RatingCalculator();
         this.players = new ArrayList<>();
         this.addPlayersToGame(player1, player2);
         this.addGameToPlayerGamesBank(player1, player2);
