@@ -2,14 +2,14 @@ package org.exapmle.eloapp;
 
 public class DefaultSettings {
     private int proRatingBoundry;
-    private int starterBoundry;
+    private int starterBoundary;
     private int defaultRating;
     private int defaultKFactor;
 
 
     public DefaultSettings() {
         proRatingBoundry = 2400;
-        starterBoundry = 30;
+        starterBoundary = 30;
         defaultRating = 2000;
         defaultKFactor = 10;
     }
@@ -18,8 +18,8 @@ public class DefaultSettings {
         return proRatingBoundry;
     }
 
-    public int getStarterBoundry() {
-        return starterBoundry;
+    public int getstarterBoundary() {
+        return starterBoundary;
     }
 
     public int getDefaultRating() {
@@ -30,7 +30,7 @@ public class DefaultSettings {
         return defaultKFactor;
     }
 
-    public void setStarterBoundry(int starterBoundry) {
-        this.starterBoundry = starterBoundry;
+    public void setstarterBoundary(int starterBoundary) {
+        this.starterBoundary = starterBoundary;
     }
 }

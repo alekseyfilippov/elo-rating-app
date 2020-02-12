@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class Player {
+    private int id;
     private String name;
     private String school;
     private int rating;
@@ -23,6 +24,14 @@ public class Player {
         gamesBank = new ArrayList<>();
         rating = defaultSettings.getDefaultRating();
         delta = rating - defaultSettings.getDefaultRating();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getSchool() {
@@ -63,12 +72,6 @@ public class Player {
 
     public void addGametoGamesBank(Game gamePlayed) {
         gamesBank.add(gamePlayed);
-    }
-
-    public void incrementWinCount() {
-    }
-
-    public void incrementLossCount() {
     }
 
     public static Comparator<Player> Rating = new Comparator<Player>() {

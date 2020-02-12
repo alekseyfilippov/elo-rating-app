@@ -3,6 +3,7 @@ package org.exapmle.eloapp;
 import java.util.ArrayList;
 
 public class Game {
+    private int id;
     private ArrayList<Player> players;
     private DefaultSettings defaultsettings;
     private Player player1;
@@ -20,6 +21,14 @@ public class Game {
         this.players = new ArrayList<>();
         this.addPlayersToGame(player1, player2);
         this.addGameToPlayerGamesBank(player1, player2);
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void addPlayersToGame(Player firstPlayer, Player secondPlayer) {

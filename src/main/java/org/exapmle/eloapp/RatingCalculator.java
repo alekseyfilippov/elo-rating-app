@@ -44,7 +44,7 @@ public class RatingCalculator {
     }
 
     public int kFactor(Player player) {
-        if (player.numberOfGamesPlayed() < defaultSettings.getStarterBoundry()) return 25;
+        if (player.numberOfGamesPlayed() < defaultSettings.getstarterBoundary()) return 25;
         if (player.getRating() < defaultSettings.getProRatingBoundry()) return 15;
         return defaultSettings.getDefaultKFactor();
     }
@@ -54,7 +54,6 @@ public class RatingCalculator {
         int secondNewRating = this.newRating(secondPlayer, firstPlayer);
         firstPlayer.setRating(firstNewRating);
         secondPlayer.setRating(secondNewRating);
-        updateWinLossCounts();
     }
 
     public void updatePlayerDelta(Player firstPlayer, Player secondPlayer) {
@@ -64,12 +63,5 @@ public class RatingCalculator {
         secondPlayer.setDelta(secondNewDelta);
 
     }
-
-    public void updateWinLossCounts() {
-        game.getWinner().incrementWinCount();
-        game.getLoser().incrementLossCount();
-    }
-
-
 
 }
