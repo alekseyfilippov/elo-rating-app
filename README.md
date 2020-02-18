@@ -14,3 +14,5 @@
     -Annotation collects 3 metrics by the method: the fact of entering the method (... _START), the fact of completion of the method (... _END), the duration of the method in milliseconds (... _DURATION).
 
 The task: It is necessary to implement both points: application and library.
+
+Progress: need to update view templates.
