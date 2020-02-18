@@ -1,60 +1,62 @@
 package org.exapmle.eloapp.domain;
 
 import org.exapmle.eloapp.algorithm.RatingCalculator;
+import org.exapmle.eloapp.repository.GameDetailsRepo;
+import org.exapmle.eloapp.repository.GameRepo;
+import org.exapmle.eloapp.repository.PlayerRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.*;
 
+
+@Entity
 public class Game {
-    private int id;
-    private ArrayList<Player> players;
-    private RatingCalculator ratingCalculator;
-    private Player player1;
-    private Player player2;
-    private int player1score;
-    private int player2score;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
+    private Timestamp gameTime;
 
-    public Game(Player player1, int player1score, Player player2, int player2score) {
-        this.player1score = player1score;
-        this.player2score = player2score;
-        this.player1 = player1;
-        this.player2 = player2;
-        RatingCalculator ratingCalculator = new RatingCalculator();
-        this.players = new ArrayList<>();
-        this.addPlayersToGame(player1, player2);
-        this.addGameToPlayerGamesBank(player1, player2);
+    @OneToMany(mappedBy = "game", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<GameDetails> gameDetails;
+
+    public void setGameDetails(List<GameDetails> matchDetails) {
+        this.gameDetails = matchDetails;
     }
 
-    public int getId() {
+    public List<GameDetails> getGameDetails() {
+        return this.gameDetails;
+    }
+
+    public Game() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeZone(TimeZone.getTimeZone("GMT"));
+        long time = calendar.getTimeInMillis();
+
+        this.gameTime = new Timestamp(time);
+    }
+
+    public Game(Timestamp gameTime) {
+        this.gameTime = gameTime;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public void addPlayersToGame(Player firstPlayer, Player secondPlayer) {
-        players.add(firstPlayer);
-        players.add(secondPlayer);
+    public Date getMatchTime() {
+        return gameTime;
     }
 
-    public void addGameToPlayerGamesBank(Player firstPlayer, Player secondPlayer) {
-        firstPlayer.addGametoGamesBank(this);
-        secondPlayer.addGametoGamesBank(this);
-    }
-
-    public Player getWinner() {
-        if (player1score > player2score) return player1;
-        return player2;
-    }
-
-    public Player getLoser() {
-        if (player1score > player2score) return player2;
-        return player1;
-    }
-
-
-    public ArrayList<Player> getPlayers() {
-        return players;
+    public void setMatchTime(Timestamp matchTime) {
+        this.gameTime = gameTime;
     }
 }
+
