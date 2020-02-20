@@ -37,7 +37,7 @@ public class PlayerController {
         model.put("players", players);
 
 
-        return "playersPage";
+        return "players";
     }
 
     @GetMapping("/addplayer")
@@ -50,7 +50,7 @@ public class PlayerController {
         Iterable<ChessSchool> schools = chessSchoolRepo.findAll();
         model.put("schools", schools);
 
-        return "addPlayerPage";
+        return "addplayer";
     }
 
     @PostMapping("/addplayer")
@@ -67,7 +67,7 @@ public class PlayerController {
             Iterable<Player> players = playerRepo.findAll();
             model.put("players", players);
 
-            return "playersPage";
+            return "players";
         }
         System.out.println("ERROR");
         return "error";
@@ -83,10 +83,10 @@ public class PlayerController {
         Iterable<Player> players = playerRepo.findAll();
         model.put("players", players);
 
-        return "playersPage";
+        return "players";
     }
 
-    @GetMapping("/bestplayers")
+    @GetMapping("/bestratingchanges")
     public String best(Map<String, Object> model) {
 
         //Date date = new Date();
@@ -112,7 +112,7 @@ public class PlayerController {
 
         model.put("players", result);
 
-        return "bestPlayers";
+        return "bestratingchanges";
 
     }
 }

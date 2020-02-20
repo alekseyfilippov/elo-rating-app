@@ -40,19 +40,19 @@ public class ChessSchoolController {
     @PostMapping("/addchessschool")
     public String add(@RequestParam String chessSchoolName, Map<String, Object> model) {
         //check that such a chess school does not exist
-//        ChessSchool chessSchool1 = chessSchoolRepo.findByName(chessSchoolName).orElse(null);
-//        if (chessSchool1 == null) {
-//            //save the new chess school in the database
-//            ChessSchool chessSchool = new ChessSchool(chessSchoolName);
-//            //transferring a new chess school
-//            model.put("newChessSchools", List.of(chessSchoolRepo.save(chessSchool)));
-//        } else {
-//            //school already exists
-//            model.put("oldChessSchools", List.of(chessSchoolRepo.save(chessSchool1)));
-//        }
-        ChessSchool chessSchool = new ChessSchool(chessSchoolName);
-        chessSchoolRepo.save(chessSchool);
-        model.put("newChessSchools", List.of(chessSchoolRepo.save(chessSchool)));
+        ChessSchool chessSchool1 = chessSchoolRepo.findByName(chessSchoolName).orElse(null);
+        if (chessSchool1 == null) {
+            //save the new chess school in the database
+            ChessSchool chessSchool = new ChessSchool(chessSchoolName);
+            //transferring a new chess school
+            model.put("newChessSchools", List.of(chessSchoolRepo.save(chessSchool)));
+        } else {
+            //school already exists
+            model.put("oldChessSchools", List.of(chessSchoolRepo.save(chessSchool1)));
+        }
+//        ChessSchool chessSchool = new ChessSchool(chessSchoolName);
+//        chessSchoolRepo.save(chessSchool);
+//        model.put("newChessSchools", List.of(chessSchoolRepo.save(chessSchool)));
         //transfer all chess schools
         Iterable<ChessSchool> chessSchools = chessSchoolRepo.findAll();
         model.put("chessschools", chessSchools);
