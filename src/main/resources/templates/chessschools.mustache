@@ -2,19 +2,14 @@
 <head>
     <title>List of chess schools</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 <body>
 <div class="container">
+
     <h2>Registered chess schools:</h2>
-    {{#if newSchools??}}
-    <#list newSchools as school>
-    <div class="alert alert-success" role="alert">
-        Школа <b>${school.name}</b> успешно зарегистрирована
-    </div>
-    </#list>
-    {{/if}}
-    <div class="row">
+        <div class="row">
         <table class="highlight">
             <thead>
             <tr>
@@ -24,22 +19,20 @@
             </thead>
 
             <tbody>
+            {{#chessschools}}
             <tr>
-                <td>Alvin</td>
-                <td>Eclair</td>
+                <th scope="row">{{id}}</th>
+                <td>{{name}}</td>
             </tr>
-            <tr>
-                <td>Alan</td>
-                <td>Jellybean</td>
-            </tr>
-            <tr>
-                <td>Jonathan</td>
-                <td>Lollipop</td>
-            </tr>
+            {{/chessschools}}
+            {{^chessschools}}
+                <p>No one school is registered</p>
+            {{/chessschools}}
             </tbody>
         </table>
     </div>
 </div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 </body>
 </html>

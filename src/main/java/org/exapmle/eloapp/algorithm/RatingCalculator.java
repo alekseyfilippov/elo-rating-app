@@ -1,8 +1,6 @@
 package org.exapmle.eloapp.algorithm;
 
-import org.exapmle.eloapp.domain.Game;
-import org.exapmle.eloapp.domain.Player;
-import org.exapmle.eloapp.repository.PlayerRepo;
+import org.exapmle.eloapp.webapp.repository.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 //simplifyed elo-rating
 public class RatingCalculator {

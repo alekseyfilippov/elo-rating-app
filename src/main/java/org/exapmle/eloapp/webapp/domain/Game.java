@@ -1,11 +1,4 @@
-package org.exapmle.eloapp.domain;
-
-import org.exapmle.eloapp.algorithm.RatingCalculator;
-import org.exapmle.eloapp.repository.GameDetailsRepo;
-import org.exapmle.eloapp.repository.GameRepo;
-import org.exapmle.eloapp.repository.PlayerRepo;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+package org.exapmle.eloapp.webapp.domain;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

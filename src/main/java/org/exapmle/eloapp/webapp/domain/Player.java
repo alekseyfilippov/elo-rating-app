@@ -1,10 +1,6 @@
-package org.exapmle.eloapp.domain;
-
-import org.exapmle.eloapp.algorithm.RatingCalculator;
+package org.exapmle.eloapp.webapp.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @Entity

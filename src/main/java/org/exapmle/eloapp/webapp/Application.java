@@ -1,7 +1,7 @@
-package org.exapmle.eloapp;
+package org.exapmle.eloapp.webapp;
 
-import org.exapmle.eloapp.domain.GamePair;
-import org.exapmle.eloapp.domain.Match;
+import org.exapmle.eloapp.algorithm.GamePair;
+import org.exapmle.eloapp.algorithm.Match;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,8 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("org.exapmle.eloapp.repository")
-@EntityScan(basePackages="org.exapmle.eloapp.domain")
+@EntityScan(basePackages="org.exapmle.eloapp.webapp.domain")
 public class Application extends SpringBootServletInitializer{
 
         @Bean
@@ -26,10 +25,10 @@ public class Application extends SpringBootServletInitializer{
             return new GamePair();
         }
 
-//        @Autowired
-//        GamePair gamePair;
-//        @Autowired
-//        Match match;
+        @Autowired
+        GamePair gamePair;
+        @Autowired
+        Match play;
 
         public static void main(String[] args) {
             ApplicationContext ctx = SpringApplication.run(Application.class, args);

@@ -1,4 +1,4 @@
-package org.exapmle.eloapp.config;
+package org.exapmle.eloapp.webapp.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;

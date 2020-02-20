@@ -1,4 +1,4 @@
-package org.exapmle.eloapp.domain;
+package org.exapmle.eloapp.webapp.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

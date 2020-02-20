@@ -1,9 +1,11 @@
-package org.exapmle.eloapp.domain;
+package org.exapmle.eloapp.algorithm;
 
-import org.exapmle.eloapp.algorithm.RatingCalculator;
-import org.exapmle.eloapp.repository.GameDetailsRepo;
-import org.exapmle.eloapp.repository.GameRepo;
-import org.exapmle.eloapp.repository.PlayerRepo;
+import org.exapmle.eloapp.webapp.domain.Game;
+import org.exapmle.eloapp.webapp.domain.GameDetails;
+import org.exapmle.eloapp.webapp.domain.Player;
+import org.exapmle.eloapp.webapp.repository.GameDetailsRepo;
+import org.exapmle.eloapp.webapp.repository.GameRepo;
+import org.exapmle.eloapp.webapp.repository.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Random;

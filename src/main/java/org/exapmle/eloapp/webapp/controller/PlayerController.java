@@ -1,12 +1,12 @@
-package org.exapmle.eloapp.controller;
+package org.exapmle.eloapp.webapp.controller;
 
-import org.exapmle.eloapp.domain.ChessSchool;
-import org.exapmle.eloapp.domain.Game;
-import org.exapmle.eloapp.domain.GameDetails;
-import org.exapmle.eloapp.domain.Player;
-import org.exapmle.eloapp.repository.ChessSchoolRepo;
-import org.exapmle.eloapp.repository.GameRepo;
-import org.exapmle.eloapp.repository.PlayerRepo;
+import org.exapmle.eloapp.webapp.domain.ChessSchool;
+import org.exapmle.eloapp.webapp.domain.Game;
+import org.exapmle.eloapp.webapp.domain.GameDetails;
+import org.exapmle.eloapp.webapp.domain.Player;
+import org.exapmle.eloapp.webapp.repository.ChessSchoolRepo;
+import org.exapmle.eloapp.webapp.repository.GameRepo;
+import org.exapmle.eloapp.webapp.repository.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

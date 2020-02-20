@@ -1,14 +1,15 @@
-package org.exapmle.eloapp.repository;
+package org.exapmle.eloapp.webapp.repository;
 
-import org.exapmle.eloapp.domain.ChessSchool;
-import org.exapmle.eloapp.domain.Player;
+import org.exapmle.eloapp.webapp.domain.ChessSchool;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface ChessSchoolRepo extends JpaRepository<ChessSchool, Long> {
+public interface ChessSchoolRepo extends CrudRepository<ChessSchool, Long> {
+
     Optional<ChessSchool> findByName(String name);
     Optional<ChessSchool> findById(Long id);
 }

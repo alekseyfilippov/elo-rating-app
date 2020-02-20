@@ -1,6 +1,4 @@
-package org.exapmle.eloapp.domain;
-
-import org.springframework.data.jpa.repository.JpaRepository;
+package org.exapmle.eloapp.webapp.domain;
 
 import javax.persistence.*;
 

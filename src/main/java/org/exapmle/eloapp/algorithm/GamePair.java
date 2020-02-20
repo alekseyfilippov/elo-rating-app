@@ -1,6 +1,7 @@
-package org.exapmle.eloapp.domain;
+package org.exapmle.eloapp.algorithm;
 
-import org.exapmle.eloapp.repository.PlayerRepo;
+import org.exapmle.eloapp.webapp.domain.Player;
+import org.exapmle.eloapp.webapp.repository.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,6 +14,7 @@ import java.util.Random;
 public class GamePair {
     private Player player1;
     private Player player2;
+
     @Autowired
     private PlayerRepo PlayerRepo;
 

@@ -1,4 +1,4 @@
-package org.exapmle.eloapp.controller;
+package org.exapmle.eloapp.webapp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
