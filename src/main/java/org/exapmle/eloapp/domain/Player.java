@@ -21,12 +21,12 @@ public class Player {
     private ChessSchool chessSchool;
 
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<GameDetails> matchDetails;
+    private List<GameDetails> gameDetails;
 
     public Player() {
     }
 
-    public Player(String name, String lastname, String surname, ChessSchool school) {
+    public Player(String name, String lastname, String surname, ChessSchool chessSchool) {
         this.name = name;
         this.lastname = lastname;
         this.surname = surname;
@@ -82,12 +82,12 @@ public class Player {
         this.elo = elo;
     }
 
-    public ChessSchool getSchool() {
+    public ChessSchool getChessSchool() {
         return chessSchool;
     }
 
-    public void setSchool(ChessSchool school) {
-        this.chessSchool = school;
+    public void setChessSchool(ChessSchool chessSchool) {
+        this.chessSchool = chessSchool;
     }
 
     @Override

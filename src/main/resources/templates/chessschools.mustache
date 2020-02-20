@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>List of chess schools</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Registered chess schools:</h2>
+    {{#if newSchools??}}
+    <#list newSchools as school>
+    <div class="alert alert-success" role="alert">
+        Школа <b>${school.name}</b> успешно зарегистрирована
+    </div>
+    </#list>
+    {{/if}}
+    <div class="row">
+        <table class="highlight">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Chess school title</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>Alvin</td>
+                <td>Eclair</td>
+            </tr>
+            <tr>
+                <td>Alan</td>
+                <td>Jellybean</td>
+            </tr>
+            <tr>
+                <td>Jonathan</td>
+                <td>Lollipop</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>

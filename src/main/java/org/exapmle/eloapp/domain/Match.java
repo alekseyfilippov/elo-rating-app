@@ -22,7 +22,7 @@ public class Match {
         this.gamePair = gamePair;
     }
 
-    public void go() {
+    public void start() {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
