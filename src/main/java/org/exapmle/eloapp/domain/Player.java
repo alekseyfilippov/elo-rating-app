@@ -2,94 +2,96 @@ package org.exapmle.eloapp.domain;
 
 import org.exapmle.eloapp.algorithm.RatingCalculator;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
+@Entity
 public class Player {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String name;
-    private String school;
-    private int rating;
-    private int delta;
-    private ArrayList<Game> gamesBank;
-    private RatingCalculator ratingCalculator;
+    private String lastname;
+    private String surname;
+    private Double elo;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private ChessSchool chessSchool;
+
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<GameDetails> matchDetails;
 
     public Player() {
-
     }
 
-    public Player(String name, String school) {
+    public Player(String name, String lastname, String surname, ChessSchool school) {
         this.name = name;
-        this.school = school;
-        RatingCalculator ratingCalculator = new RatingCalculator();
-        gamesBank = new ArrayList<>();
-        rating = ratingCalculator.getDefaultRating();
-        delta = rating - ratingCalculator.getDefaultRating();
+        this.lastname = lastname;
+        this.surname = surname;
+        this.elo = 400d;
+        this.chessSchool = chessSchool;
     }
 
-    public int getId() {
+    public Player(String name, String lastname, String surname, Double elo, ChessSchool chessSchool) {
+        this.name = name;
+        this.lastname = lastname;
+        this.surname = surname;
+        this.elo = elo;
+        this.chessSchool = chessSchool;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
-    }
-
-    public int numberOfGamesPlayed() {
-        return gamesBank.size();
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
-    public int getDelta() {
-        return delta;
-    }
-
-    public void setDelta(int delta) {
-        this.delta = delta;
     }
 
     public String getName() {
         return name;
     }
 
-    public ArrayList<Game> getGamesBank() {
-        return gamesBank;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void addGametoGamesBank(Game gamePlayed) {
-        gamesBank.add(gamePlayed);
+    public String getLastname() {
+        return lastname;
     }
 
-    public static Comparator<Player> Rating = new Comparator<Player>() {
-        public int compare(Player player1, Player player2) {
-            int ratingNo1 = player1.getRating();
-            int ratingNo2 = player2.getRating();
-            return ratingNo2 - ratingNo1;
-        }
-    };
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-    public static Comparator<Player> Delta = new Comparator<Player>() {
-        public int compare(Player player1, Player player2) {
-            int deltaNo1 = player1.getDelta();
-            int deltaNo2 = player2.getDelta();
-            return deltaNo2 - deltaNo1;
-        }
-    };
+    public String getSurname() {
+        return surname;
+    }
 
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Double getElo() {
+        return elo;
+    }
+
+    public void setElo(Double elo) {
+        this.elo = elo;
+    }
+
+    public ChessSchool getSchool() {
+        return chessSchool;
+    }
+
+    public void setSchool(ChessSchool school) {
+        this.chessSchool = school;
+    }
+
+    @Override
+    public String toString() {
+        return surname + " " + name + " " + lastname + " " + elo + " [" + chessSchool + ']';
+    }
 }

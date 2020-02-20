@@ -15,4 +15,4 @@
 
 The task: It is necessary to implement both points: application and library.
 
-Progress: now it works just on console by starting Console.class, without Spring.
+Progress: need to update view templates.
