@@ -71,11 +71,11 @@ public class PlayerController {
         return "redirect:/chessschools";
     }
 
-    @GetMapping("/delplayer/{id}")
+    @GetMapping("/deleteplayer/{id}")
     public String del(@PathVariable("id") int id, Map<String, Object> model) {
-        Player player = playerRepo.findById(id)
+        Player player1 = playerRepo.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Invalid user id: " + id));
-        playerRepo.delete(player);
+        playerRepo.delete(player1);
 
         //get all the players and pass them to display on the page
         Iterable<Player> players = playerRepo.findAll();
