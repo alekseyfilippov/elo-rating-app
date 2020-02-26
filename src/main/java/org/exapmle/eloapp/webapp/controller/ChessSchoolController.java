@@ -42,7 +42,7 @@ public class ChessSchoolController {
         Iterable<ChessSchool> chessSchools = chessSchoolRepo.findAll();
         model.put("chessschools", chessSchools);
 
-        return "chessschools";
+        return "redirect:/chessschools";
     }
 
     @PostMapping("/chessschools")
@@ -58,9 +58,7 @@ public class ChessSchoolController {
             //school already exists
             model.put("oldChessSchools", List.of(chessSchoolRepo.save(chessSchool1)));
         }
-//        ChessSchool chessSchool = new ChessSchool(chessSchoolName);
-//        chessSchoolRepo.save(chessSchool);
-//        model.put("newChessSchools", List.of(chessSchoolRepo.save(chessSchool)));
+
         //transfer all chess schools
         Iterable<ChessSchool> chessSchools = chessSchoolRepo.findAll();
         model.put("chessschools", chessSchools);
