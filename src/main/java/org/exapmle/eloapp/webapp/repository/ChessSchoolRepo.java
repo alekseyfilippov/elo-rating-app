@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface ChessSchoolRepo extends CrudRepository<ChessSchool, Long> {
 
     Optional<ChessSchool> findByName(String name);
-    Optional<ChessSchool> findById(Long id);
+    Optional<ChessSchool> findById(int id);
 }

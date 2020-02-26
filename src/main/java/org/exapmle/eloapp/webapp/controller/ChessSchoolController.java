@@ -7,6 +7,7 @@ import org.exapmle.eloapp.webapp.repository.PlayerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,7 +21,7 @@ public class ChessSchoolController {
     @Autowired
     private PlayerRepo playerRepo;
 
-    @GetMapping("/chess_schools")
+    @GetMapping("/chessschools")
     public String chessSchool(Map<String, Object> model) {
         Iterable<Player> players = playerRepo.findAll();
         model.put("players", players);
@@ -31,13 +32,20 @@ public class ChessSchoolController {
         return "chessschools";
     }
 
-    @GetMapping("/addchessschool")
-    public String addChessSchool(Map<String, Object> model) {
+    @GetMapping("/delchessschool/{id}")
+    public String del(@PathVariable("id") int id, Map<String, Object> model) {
+        ChessSchool chessSchool = chessSchoolRepo.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid chess school id: " + id));
+        chessSchoolRepo.delete(chessSchool);
 
-        return "addchessschool";
+        //get all the chess schools and pass them to display on the page
+        Iterable<ChessSchool> chessSchools = chessSchoolRepo.findAll();
+        model.put("chessschools", chessSchools);
+
+        return "chessschools";
     }
 
-    @PostMapping("/addchessschool")
+    @PostMapping("/chessschools")
     public String add(@RequestParam String chessSchoolName, Map<String, Object> model) {
         //check that such a chess school does not exist
         ChessSchool chessSchool1 = chessSchoolRepo.findByName(chessSchoolName).orElse(null);

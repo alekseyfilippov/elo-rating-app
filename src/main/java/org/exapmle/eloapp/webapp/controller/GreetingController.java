@@ -12,6 +12,13 @@ import java.util.Map;
 @Controller
 public class GreetingController {
 
+    @Autowired
+    private PlayerRepo playerRepo;
+    @Autowired
+    private ChessSchoolRepo chessSchoolRepo;
+    @Autowired
+    private GameRepo gameRepo;
+
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
         model.put("players", "Players not added");
