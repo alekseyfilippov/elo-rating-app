@@ -9,7 +9,7 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String lastname;
+    private String patronymic;
     private String surname;
     private Double elo;
 
@@ -22,17 +22,17 @@ public class Player {
     public Player() {
     }
 
-    public Player(String name, String lastname, String surname, ChessSchool chessSchool) {
+    public Player(String name, String patronymic, String surname, ChessSchool chessSchool) {
         this.name = name;
-        this.lastname = lastname;
+        this.patronymic = patronymic;
         this.surname = surname;
         this.elo = 400d;
         this.chessSchool = chessSchool;
     }
 
-    public Player(String name, String lastname, String surname, Double elo, ChessSchool chessSchool) {
+    public Player(String name, String patronymic, String surname, Double elo, ChessSchool chessSchool) {
         this.name = name;
-        this.lastname = lastname;
+        this.patronymic = patronymic;
         this.surname = surname;
         this.elo = elo;
         this.chessSchool = chessSchool;
@@ -54,12 +54,12 @@ public class Player {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getPatronymic() {
+        return patronymic;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
     }
 
     public String getSurname() {
@@ -88,6 +88,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return surname + " " + name + " " + lastname + " " + elo + " [" + chessSchool + ']';
+        return surname + " " + name + " " + patronymic + " " + elo + " [" + chessSchool + ']';
     }
 }

@@ -1,0 +1,46 @@
+<h2>Register new chess player:</h2>
+<div class="row">
+    <form id="addplayer" class="col s12" method="post" action="players">
+
+        <!--School -->
+
+        <div class="row">
+            <div class="input-field col s12">
+                <select id="chessSchool" name="chessSchool" >
+                    <option value="Choose chess school" disabled selected>Choose chess school</option>
+                    {{#chessschools}}
+                        <option>{{name}}</option>
+                    {{/chessschools}}
+                    {{^chessschools}}
+                        <option class="red-text">
+                            <a href="/chessschools">Register the chess school at first!</a>
+                        </option>
+                    {{/chessschools}}
+                </select>
+                <label for="chessSchool">Choose chess school:</label>
+            </div>
+        </div>
+        <div class="row">
+            <!--name -->
+            <div class="input-field col s4">
+                <input placeholder="Input first name" name="name" required id="name" type="text" class="validate"/>
+                <label for="name">First Name</label>
+            </div>
+            <!--surname -->
+
+            <div class="input-field col s4">
+                <input placeholder="Input surname" required name="surname" id="surname" type="text" class="validate"/>
+                <label for="surname">Last Name</label>
+            </div>
+
+            <!--patronymic/middle name -->
+            <div class="input-field col s4">
+                <input placeholder="Input patronymic/middle name" required name="patronymic" id="patronymic" type="text" class="validate"/>
+                <label for="patronymic">Patronymic/Middle name</label>
+            </div>
+        </div>
+        <button form="addplayer" class="btn waves-effect waves-light col s2 offset-s5" type="submit">
+            <i class="material-icons center">ADD</i>
+        </button>
+    </form>
+</div>

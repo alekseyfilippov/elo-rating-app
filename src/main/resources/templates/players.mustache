@@ -1,0 +1,69 @@
+<html>
+<head>
+    <title>List of chess players</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+        h2 {
+            /*display: block; */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    {{> navbar}}
+    <br>
+    {{> addplayerform}}
+    {{#newPlayers}}
+        <span class="green-text">Chess player <b>{{name}}</b> successfully registered!</span>
+    {{/newPlayers}}
+    <br>
+    <h2>Registered chess players:</h2>
+    <div class="row">
+        <table class="highlight col s8 offset-s1">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Name</th>
+                <th scope="col">Middle name</th>
+                <th scope="col">Chess school title</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            {{#players}}
+                <tr>
+                    <th scope="row">{{id}}</th>
+                    <td>{{surname}}</td>
+                    <td>{{name}}</td>
+                    <td>{{patronymic}}</td>
+                    <td>{{chessSchool.name}}</td>
+                    <td>{{elo}}</td>
+                    <td>
+                        <a href="/deleteplayer/{{id}}">Delete player</a>
+                    </td>
+                </tr>
+            {{/players}}
+            {{^players}}
+                <p>No one players is registered yet</p>
+            {{/players}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
+</body>
+</html>

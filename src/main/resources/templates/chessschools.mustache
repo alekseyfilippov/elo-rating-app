@@ -4,6 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+        h2 {
+            /*display: block; */
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -19,7 +25,7 @@
         <br>
         <h2>Registered chess schools:</h2>
         <div class="row">
-            <table class="highlight">
+            <table class="highlight col s8 offset-s1">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -38,7 +44,8 @@
                     </tr>
                 {{/chessschools}}
                 {{^chessschools}}
-                    <p>No one school is registered</p>
+                    <span class="offset-s3">No one school is registered yet</span>
+                    <br>
                 {{/chessschools}}
                 </tbody>
             </table>

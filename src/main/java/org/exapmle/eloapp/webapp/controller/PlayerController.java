@@ -30,38 +30,36 @@ public class PlayerController {
     private GameRepo gameRepo;
 
 
+//    @GetMapping("/players")
+//    public String players(Map<String, Object> model) {
+//        //get all the players and pass them to display on the page
+//        Iterable<Player> players = playerRepo.findAll();
+//        model.put("players", players);
+//
+//
+//        return "players";
+//    }
+
     @GetMapping("/players")
-    public String players(Map<String, Object> model) {
-        //get all the players and pass them to display on the page
+    public String addplayer(Map<String, Object> model) {
         Iterable<Player> players = playerRepo.findAll();
         model.put("players", players);
 
+        Iterable<ChessSchool> chessSchools = chessSchoolRepo.findAll();
+        model.put("chessschools", chessSchools);
 
         return "players";
     }
 
-    @GetMapping("/addplayer")
-    public String addplayer(Map<String, Object> model) {
-        //get all the players and pass them to display on the page
-        Iterable<Player> players = playerRepo.findAll();
-        model.put("players", players);
-
-        //get all the schools and pass them to display on the page
-        Iterable<ChessSchool> schools = chessSchoolRepo.findAll();
-        model.put("schools", schools);
-
-        return "addplayer";
-    }
-
-    @PostMapping("/addplayer")
-    public String add(@RequestParam String name, @RequestParam String surname, @RequestParam String lastname, @RequestParam String school, Map<String, Object> model) {
-        ChessSchool chessSchool1 = chessSchoolRepo.findByName(school).orElse(null);
+    @PostMapping("/players")
+    public String add(@RequestParam String name, @RequestParam String patronymic, @RequestParam String surname, @RequestParam String chessSchool, Map<String, Object> model) {
+        ChessSchool chessSchool1 = chessSchoolRepo.findByName(chessSchool).orElse(null);
         //check if there is a school with the given name
         if (chessSchool1 != null) {
             //create and save player
-            Player player = new Player(name, lastname, surname, chessSchool1);
+            Player player1 = new Player(name, patronymic, surname, chessSchool1);
             //transfer new player
-            model.put("newPlayers", List.of(playerRepo.save(player)));
+            model.put("newPlayers", List.of(playerRepo.save(player1)));
 
             //get all the players and pass them to display on the page
             Iterable<Player> players = playerRepo.findAll();
@@ -69,8 +67,8 @@ public class PlayerController {
 
             return "players";
         }
-        System.out.println("ERROR");
-        return "error";
+        System.out.println("School is not exist!");
+        return "redirect:/chessschools";
     }
 
     @GetMapping("/delplayer/{id}")
@@ -83,7 +81,7 @@ public class PlayerController {
         Iterable<Player> players = playerRepo.findAll();
         model.put("players", players);
 
-        return "players";
+        return "redirect:/players";
     }
 
     @GetMapping("/bestratingchanges")
