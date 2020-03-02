@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>List of chess schools</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <style>
+        h2 {
+            /*display: block; */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>Список игроков с лучшей динамикой за последние 5 минут:</h2>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Name</th>
+        <th scope="col">Middle name</th>
+        <th scope="col">Chess school title</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Rating change dynamic</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#players}}
+        <tr>
+            <th scope="row">${player?index}</th>
+            <td>{{surname}}</td>
+            <td>{{name}}</td>
+            <td>{{lastname}}</td>
+            <td>{{chessSchool.name}}</td>
+            <td>{{elo}}</td>
+    <!--        <td>${elo}</td>-->
+        </tr>
+    {{/players}}
+    {{^players}}
+        <span class="red-text">В данный момент нет зарегистрированных участников</span>
+    {{/players}}
+    </tbody>
+</table>
+</body>
+</html>

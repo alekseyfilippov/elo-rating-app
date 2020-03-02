@@ -93,12 +93,12 @@ public class PlayerController {
         calendar.add(Calendar.MINUTE, -5);
         Date date = calendar.getTime();
         System.out.println(date.toString());
-        List<Game> matchs = gameRepo.findByGameTimeAfter(date);
+        List<Game> games = gameRepo.findByGameTimeAfter(date);
 
 
-        Map<Player, Double> result = matchs.stream() //convert to stream
-                // .map(Match::getGameDetails) //Game Details Map
-                .flatMap(Match -> Match.getGameDetails().stream()) //Game Details Map
+        Map<Player, Double> result = games.stream() //convert to stream
+                // .map(Game::getGameDetails) //Game Details Map
+                .flatMap(Game -> Game.getGameDetails().stream()) //Game Details Map
 
                 .collect(Collectors.groupingBy(GameDetails::getPlayer, Collectors.summingDouble(GameDetails::getRatingChange)))
 
