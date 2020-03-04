@@ -26,20 +26,20 @@
     </tr>
     </thead>
     <tbody>
-    {{#players}}
+    {{#players elo}}
         <tr>
             <th scope="row">${player?index}</th>
-            <td>{{surname}}</td>
-            <td>{{name}}</td>
-            <td>{{lastname}}</td>
-            <td>{{chessSchool.name}}</td>
+            <td>{{player.surname}}</td>
+            <td>{{player.name}}</td>
+            <td>{{player.lastname}}</td>
+            <td>{{player.chessSchool.name}}</td>
+            <td>{{player.elo}}</td>
             <td>{{elo}}</td>
-    <!--        <td>${elo}</td>-->
         </tr>
-    {{/players}}
-    {{^players}}
+    {{/players elo}}
+    {{^players elo}}
         <span class="red-text">В данный момент нет зарегистрированных участников</span>
-    {{/players}}
+    {{/players elo}}
     </tbody>
 </table>
 </body>
